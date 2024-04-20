@@ -100,6 +100,7 @@ const UserList = (props: UserListProps) => {
     setUserFormDialogState((prevState) => ({
       ...prevState,
       title: 'Add User',
+      confirmButtonText: 'Add',
       onConfirmButtonClick: handleUserCreation
     }));
 
@@ -122,6 +123,7 @@ const UserList = (props: UserListProps) => {
     setUserFormDialogState((prevState) => ({
       ...prevState,
       title: 'Edit User',
+      confirmButtonText: 'Edit',
       onConfirmButtonClick: () => handleUserEdit(id)
     }));
 
