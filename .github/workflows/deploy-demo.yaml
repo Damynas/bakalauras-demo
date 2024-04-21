@@ -26,6 +26,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
+      NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
     runs-on: ubuntu-latest
 
