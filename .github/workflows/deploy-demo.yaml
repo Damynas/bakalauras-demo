@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: read
+  packages: read
   pages: write
   id-token: write
 
@@ -23,10 +24,6 @@ concurrency:
 # List of jobs
 jobs:
   deploy:
-    permissions:
-      contents: read
-      packages: read
-
     environment:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
