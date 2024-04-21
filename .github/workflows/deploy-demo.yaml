@@ -26,7 +26,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
-      NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
     runs-on: ubuntu-latest
 
@@ -44,6 +43,11 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: 8
+
+      - name: Set NPM token
+        run: |
+          echo "@damynas:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> ~/.npmrc
 
       - name: Install dependencies
         run: pnpm install
